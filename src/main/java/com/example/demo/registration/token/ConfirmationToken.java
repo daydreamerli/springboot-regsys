@@ -1,7 +1,6 @@
 package com.example.demo.registration.token;
 
 import com.example.demo.appuser.AppUser;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,7 +31,7 @@ public class ConfirmationToken {
     @Column(nullable = false)
     private LocalDateTime createAt;
     @Column(nullable = false)
-    private LocalDateTime exoireAt;
+    private LocalDateTime expiresAt;
     private LocalDateTime confirmedAt;
 
     @ManyToOne
@@ -44,11 +43,11 @@ public class ConfirmationToken {
 
     public ConfirmationToken(String token,
                              LocalDateTime createAt,
-                             LocalDateTime exoireAt,
+                             LocalDateTime expiresAt,
                              AppUser appUser) {
         this.token = token;
         this.createAt = createAt;
-        this.exoireAt = exoireAt;
+        this.expiresAt = expiresAt;
         this.appUser = appUser;
     }
 }
